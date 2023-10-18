@@ -15,7 +15,7 @@ phases:
     commands:
       - cp .env.prod .env
       - docker build -t $IMAGE .
-      - docker tag $IMAGE:latest $REPO/$IMAGE:latest
+      - docker tag prod-laravel-api:latest 242611965122.dkr.ecr.eu-west-1.amazonaws.com/prod-laravel-api:latest
   post_build:
     on-failure: ABORT
     commands:
