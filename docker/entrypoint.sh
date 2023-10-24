@@ -22,9 +22,18 @@ else
 fi
 
 # php artisan migrate
+sudo apt-get install php-dom
+php artisan route:cache
+php artisan route:clear
+php artisan config:cache
+php artisan config:clear
+php artisan optimize
+
 php artisan clear
 php artisan optimize:clear
 php artisan migrate
+
+php artisan db:seed
 
 # Fix files ownership.
 chown -R www-data .
