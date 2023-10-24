@@ -1,5 +1,5 @@
 # Used for prod build.
-FROM $PHP_IMAGE:latest as php
+FROM $REPO/$PHP_IMAGE:latest as php
 
 # Copy configuration files.
 COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
