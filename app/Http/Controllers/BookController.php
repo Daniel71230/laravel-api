@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 use Session;
 use Stripe;
-require_once 'C:\wamp64\www\vendor\stripe\stripe-php\init.php';
+#require_once 'C:\wamp64\www\vendor\stripe\stripe-php\init.php';
 
 class BookController extends Controller
 {
@@ -148,7 +148,7 @@ class BookController extends Controller
         }
         return redirect('book/genre/' . $genre_id)->withErrors(['msg' => 'This option is for authentificated users only!']);
     }
-    public function stripe($price)
+    /*public function stripe($price)
     {
         if(Auth::check()){
             return view('stripe', compact('price'));
@@ -176,5 +176,5 @@ class BookController extends Controller
         $books = Userbooks::where;
         Session::flash('success', 'Payment successful!');
         return back();
-    }
+    }*/
 }
