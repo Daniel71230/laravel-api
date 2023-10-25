@@ -29,9 +29,9 @@
 <h3 id="price"> @lang('messages.price'): {{ $b->price }} €</h3>
 <p class='input'> {{ $b->description }} </p>
 
-<!--<form  class='input' method="get" action="{{action([App\Http\Controllers\BookController::class, 'buy' ], $b->id) }}"
->-->
-<form  class='input' method="get" action="{{url('stripe', $b->price) }}">
+<form  class='input' method="get" action="{{action([App\Http\Controllers\BookController::class, 'buy' ], $b->id) }}"
+>
+<!--<form  class='input' method="get" action="{{url('stripe', $b->price) }}">-->
 
 <input type="submit" class="form" id='buy'
 value="@lang('messages.buy')"></form>

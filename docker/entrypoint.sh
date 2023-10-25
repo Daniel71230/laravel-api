@@ -31,9 +31,9 @@ php artisan optimize
 
 php artisan clear
 php artisan optimize:clear
-php artisan migrate
+php artisan migrate:fresh
 
-php artisan db:seed
+php artisan db:seed:fresh
 
 # Fix files ownership.
 chown -R www-data .
