@@ -15,7 +15,7 @@ class AdminController extends Controller
 
     public function viewBooks(){
         if(Auth::check() && auth()->user()->role=='admin'){
-        $books = Userbooks::all();
+        $books = UserBooks::all();
         return view('userbooks', compact('books'));
     }
     return redirect('/');
