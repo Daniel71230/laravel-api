@@ -31,7 +31,7 @@ php artisan optimize
 
 php artisan clear
 php artisan optimize:clear
-php artisan migrate:fresh
+php artisan migrate
 
 php artisan db:seed
 
