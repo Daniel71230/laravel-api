@@ -2,11 +2,14 @@ terraform {
   required_version = "~> 1.5"
 
   backend "s3" {
+    profile        = "Daniel"
     bucket         = "cc-tf-demo"
     key            = "tf-infra/terraform.tfstate"
-    region         = "us-east-1"
+    region         = "eu-central-1"
     dynamodb_table = "ccTfDemo"
     encrypt        = true
+    access_key     = "AKIATQ7GMZTBKVTG4ODE"
+    secret_key     = "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"
   }
 
   required_providers {
@@ -22,10 +25,9 @@ module "tf-state" {
   bucket_name = local.bucket_name
   table_name  = local.table_name
 }
-
+/*
 module "ecrRepo" {
   source = "./modules/ecr"
-
   ecr_repo_name = local.ecr_repo_name
 }
 
@@ -44,4 +46,4 @@ module "ecsCluster" {
   application_load_balancer_name = local.application_load_balancer_name
   target_group_name              = local.target_group_name
   demo_app_service_name          = local.demo_app_service_name
-}
+}*/
