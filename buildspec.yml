@@ -8,8 +8,11 @@ phases:
   pre_build:
     on-failure: ABORT
     commands:
-      - echo 'Logging into ECR ...'
-      - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin $REPO
+      - apt install unzip -y
+      - wget https://releases.hashicorp.com/terraform/1.6.2/terraform_1.6.2_linux_amd64.zip
+      - unzip terraform_1.6.2_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+      - terraform init
   build:
     on-failure: ABORT
     commands:
@@ -21,4 +24,8 @@ phases:
     commands:
       - docker images ls -a
       - docker push $REPO/$IMAGE:latest
+      - echo Writing image definitions file...
+      - printf '[{"name":"%s","imageUri":"%s"}]' $IMAGE $REPO:latest > imagedef.json
+artifacts:
+    files: imagedefinitions.json
 
