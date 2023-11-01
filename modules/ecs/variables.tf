@@ -8,7 +8,7 @@ variable "availability_zones" {
   type        = list(string)
 }
 
-variable "laravel_app_task_famliy" {
+variable "laravel_app_task_family" {
   description = "ECS Task Family"
   type        = string
 }
@@ -33,7 +33,7 @@ variable "ecs_task_execution_role_name" {
   type        = string
 }
 
-variable "application_load_balancer_name" {
+variable "app_load_balancer_name" {
   description = "ALB Name"
   type        = string
 }
