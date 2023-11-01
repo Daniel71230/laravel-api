@@ -1,4 +1,4 @@
-resource "aws_ecs_cluster" "demo_app_cluster" {
+resource "aws_ecs_cluster" "laravel_app_cluster" {
   name = var.laravel_app_cluster_name
 }
 
@@ -16,8 +16,8 @@ resource "aws_default_subnet" "default_subnet_c" {
   availability_zone = var.availability_zones[2]
 }
 
-resource "aws_ecs_task_definition" "demo_app_task" {
-  family                   = var.laravel_app_task_famliy
+resource "aws_ecs_task_definition" "laravel_app_task" {
+  family                   = var.laravel_app_task_family
   container_definitions    = <<DEFINITION
   [
     {
@@ -52,8 +52,8 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_alb" "application_load_balancer" {
-  name               = var.application_load_balancer_name
+resource "aws_alb" "app_load_balancer" {
+  name               = var.app_load_balancer_name
   load_balancer_type = "application"
   subnets = [
     "${aws_default_subnet.default_subnet_a.id}",
@@ -88,7 +88,7 @@ resource "aws_lb_target_group" "target_group" {
 }
 
 resource "aws_lb_listener" "listener" {
-  load_balancer_arn = aws_alb.application_load_balancer.arn
+  load_balancer_arn = aws_alb.app_load_balancer.arn
   port              = "80"
   protocol          = "HTTP"
   default_action {
@@ -97,16 +97,16 @@ resource "aws_lb_listener" "listener" {
   }
 }
 
-resource "aws_ecs_service" "demo_app_service" {
+resource "aws_ecs_service" "laravel_app_service" {
   name            = var.laravel_app_service_name
-  cluster         = aws_ecs_cluster.demo_app_cluster.id
-  task_definition = aws_ecs_task_definition.demo_app_task.arn
+  cluster         = aws_ecs_cluster.laravel_app_cluster.id
+  task_definition = aws_ecs_task_definition.laravel_app_task.arn
   launch_type     = "FARGATE"
   desired_count   = 1
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
-    container_name   = aws_ecs_task_definition.demo_app_task.family
+    container_name   = aws_ecs_task_definition.laravel_app_task.family
     container_port   = var.container_port
   }
 
