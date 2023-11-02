@@ -12,7 +12,7 @@ terraform {
 module "ecrRepo" {
   source = "./modules/ecr"
 
-  ecr_repo_name = "laravel-app-ecr-repo"
+  ecr_repo_name = local.ecr_repo_name
 }
 
 module "ecsCluster" {
