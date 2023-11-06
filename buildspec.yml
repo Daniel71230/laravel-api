@@ -19,8 +19,8 @@ phases:
   build:
     on-failure: ABORT
     commands:
-      - terraform plan -var "access_key=${ACCESS_KEY}" -var "secret_key=${SECRET_KEY}"
-      - terraform apply -var "access_key=${ACCESS_KEY}" -var "secret_key=${SECRET_KEY}" -auto-approve
+      - terraform plan 
+      - terraform apply -auto-approve
       - cp .env.prod .env
       - docker build -t laravel_app_ecr_repo .
       - docker tag laravel_app_ecr_repo:latest 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel_app_ecr_repo:latest
