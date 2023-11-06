@@ -22,8 +22,8 @@ phases:
       - terraform plan 
       - terraform apply -auto-approve
       - cp .env.prod .env
-      - docker build -t laravel_app_ecr_repo .
-      - docker tag laravel_app_ecr_repo:latest 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel_app_ecr_repo:latest
+      - docker build -t laravel-app-ecr-repo .
+      - docker tag laravel-app-ecr-repo:latest 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-app-ecr-repo:latest
   post_build:
     on-failure: ABORT
     commands:
