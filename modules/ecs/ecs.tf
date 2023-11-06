@@ -113,7 +113,7 @@ resource "aws_ecs_service" "laravel_app_service" {
   network_configuration {
     subnets          = ["${aws_default_subnet.default_subnet_a.id}", "${aws_default_subnet.default_subnet_b.id}", "${aws_default_subnet.default_subnet_c.id}"]
     assign_public_ip = true
-    security_groups  = ["${aws_security_group.service_security_group.id}"]
+    security_groups  = ["${aws_security_group.service_security_group.id}", , "sg-0ca883d581e8c6e8b"]
   }
 }
 
