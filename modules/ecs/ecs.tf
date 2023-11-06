@@ -104,11 +104,11 @@ resource "aws_ecs_service" "laravel_app_service" {
   launch_type     = "FARGATE"
   desired_count   = 1
 
-  /*load_balancer {
+  load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = aws_ecs_task_definition.laravel_app_task.family
     container_port   = var.container_port
-  }*/
+  }
 
   network_configuration {
     subnets          = ["${aws_default_subnet.default_subnet_a.id}", "${aws_default_subnet.default_subnet_b.id}", "${aws_default_subnet.default_subnet_c.id}"]
