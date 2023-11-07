@@ -7,7 +7,7 @@ locals {
   laravel_app_cluster_name        = "laravel-web-app"
   availability_zones           = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   laravel_app_task_family         = "laravel-web-app"
-  container_port               = 3000
+  container_port               = 8080
   laravel_app_task_name           = "laravel-web-app"
   ecs_task_execution_role_name = "laravel-web-app-execution-role"
 
