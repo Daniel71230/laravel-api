@@ -26,9 +26,8 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
       "essential": true,
       "portMappings": [
         {
-          "containerPort": 80,
-          "hostPort": 80,
-          "protocol": "tcp"
+          "containerPort": ${var.container_port},
+          "hostPort": ${var.container_port}
         }
       ],
       "memory": 512,
