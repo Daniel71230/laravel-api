@@ -15,4 +15,5 @@ locals {
   target_group_name              = "laravel-alb-tg"
 
   laravel_app_service_name = "laravel-app-service"
+  cloudwatch_group = "ecs_cloudwatch"
 }
