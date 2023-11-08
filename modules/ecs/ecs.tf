@@ -30,6 +30,14 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
           "hostPort": ${var.container_port}
         }
       ],
+      "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "${var.cloudwatch_group}",
+            "awslogs-region": "eu-west-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        }
       "memory": 512,
       "cpu": 256
     }
