@@ -124,7 +124,7 @@ resource "aws_ecs_service" "laravel_app_service" {
     security_groups  = ["${aws_security_group.service_security_group.id}", "sg-0ca883d581e8c6e8b", "sg-0c60fad80a982e530", "sg-0ca18d55621ed8fdc"]
   }
 }
-*/
+
 resource "aws_security_group" "service_security_group" {
   ingress {
     from_port       = 0
@@ -140,3 +140,4 @@ resource "aws_security_group" "service_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+*/
