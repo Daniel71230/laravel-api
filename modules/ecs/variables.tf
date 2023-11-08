@@ -47,3 +47,10 @@ variable "laravel_app_service_name" {
   description = "ECS Service Name"
   type        = string
 }
+
+variable "cloudwatch_group" {
+  description = "CloudWatch group name."
+  type = string
+  default = "supreme-task-group"
+}
+
