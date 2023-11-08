@@ -38,8 +38,6 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
             "awslogs-stream-prefix": "ecs"
           }
         }
-      "memory": 512,
-      "cpu": 256
     }
   ]
   DEFINITION
