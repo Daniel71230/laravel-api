@@ -52,7 +52,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_alb" "app_load_balancer" {
+/*resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
   subnets = [
@@ -131,4 +131,4 @@ resource "aws_security_group" "service_security_group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
+}*/
