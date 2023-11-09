@@ -8,20 +8,24 @@ phases:
   pre_build:
     on-failure: ABORT
     commands:
+      - echo 'Installing Terraform'
       - apt install unzip -y
-      - wget https://releases.hashicorp.com/terraform/1.6.2/terraform_1.6.2_linux_amd64.zip
+      - wget https://releases.hashicorp.com/terraform/1.6.2/terraform_1.6.2_linux_amd64.zip   
       - unzip terraform_1.6.2_linux_amd64.zip
       - mv terraform /usr/local/bin/
       - terraform init
+      - echo 'Terraform initializes successfully!'
       - echo 'Logging into ECR ...'
       - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 242611965122.dkr.ecr.eu-west-1.amazonaws.com
       - terraform validate
+      - echo "Terraform is valid!"
   build:
     on-failure: ABORT
     commands:
+      - echo "Provisioning Terraform resources!"
       - terraform plan 
       - terraform apply -auto-approve
-      - cp .env.prod .env
+      - echo "Starting docker build"
       - docker build -t laravel-app-ecr-repo .
       - docker tag laravel-app-ecr-repo:latest 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-app-ecr-repo:latest
   post_build:
@@ -29,6 +33,6 @@ phases:
     commands:
       - docker images ls -a
       - docker push 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-app-ecr-repo:latest
-      - echo Writing image definitions file...
+      - echo "Writing image definitions file...
 
 
