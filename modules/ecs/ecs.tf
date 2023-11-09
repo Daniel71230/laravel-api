@@ -57,6 +57,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   role       = aws_iam_role.ecs_task_execution_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
+/*
 resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
@@ -137,4 +138,4 @@ resource "aws_security_group" "service_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
+*/
