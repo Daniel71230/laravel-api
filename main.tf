@@ -9,11 +9,11 @@ terraform {
   }
 }
 
-module "ecrRepo" {
+/*module "ecrRepo" {
   source = "./modules/ecr"
 
   ecr_repo_name = local.ecr_repo_name
-}
+}*/
 
 module "ecsCluster" {
   source = "./modules/ecs"
