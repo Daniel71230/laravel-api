@@ -66,7 +66,7 @@ resource "aws_alb" "app_load_balancer" {
     "${aws_default_subnet.default_subnet_b.id}",
     "${aws_default_subnet.default_subnet_c.id}"
   ]
-  security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
+  security_groups = ["${aws_security_group.load_balancer_security_group.id}", "sg-0ca883d581e8c6e8b", "sg-0c60fad80a982e530", "sg-0ca18d55621ed8fdc"]
 }
 
 resource "aws_security_group" "load_balancer_security_group" {
