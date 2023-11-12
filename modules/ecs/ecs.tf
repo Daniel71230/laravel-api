@@ -73,7 +73,7 @@ resource "aws_security_group" "load_balancer_security_group" {
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "tcp"
+    protocol    = "all"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
