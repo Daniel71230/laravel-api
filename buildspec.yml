@@ -33,6 +33,6 @@ phases:
     on-failure: ABORT
     commands:
       - docker images ls -a
-      - echo "Writing image definitions file...
+      - echo "Writing image definitions file..."
 
 
