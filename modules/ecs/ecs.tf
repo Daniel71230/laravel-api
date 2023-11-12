@@ -22,7 +22,7 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
   [
     {
       "name": "${var.laravel_app_task_name}",
-      "image": "242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-app-ecr-repo:latest",
+      "image": "${var.ecr_repo_url}",
       "essential": true,
       "portMappings": [
         {
