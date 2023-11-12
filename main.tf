@@ -22,7 +22,7 @@ module "ecsCluster" {
   availability_zones    = local.availability_zones
 
   laravel_app_task_family         = local.laravel_app_task_family
-  ecr_repo_url                 = module.ecrRepo.repository_url
+  ecr_repo_url                 = "242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-app-ecr-repo:latest"
   container_port               = local.container_port
   laravel_app_task_name        = local.laravel_app_task_name
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
