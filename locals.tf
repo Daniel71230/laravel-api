@@ -1,7 +1,4 @@
 locals {
-  bucket_name = "cc-tf-demo"
-  table_name  = "ccTfDemo"
-
   ecr_repo_name = "laravel-app-ecr-repo"
 
   laravel_app_cluster_name        = "laravel-web-app"
