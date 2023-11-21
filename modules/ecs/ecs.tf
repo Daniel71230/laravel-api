@@ -128,7 +128,8 @@ resource "aws_security_group" "service_security_group" {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
+    security_groups = ["sg-0ca883d581e8c6e8b", "sg-0c60fad80a982e530", "sg-0ca18d55621ed8fdc"]
+}
   }
 
   egress {
