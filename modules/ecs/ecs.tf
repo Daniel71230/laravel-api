@@ -103,25 +103,25 @@ resource "aws_lb_listener" "listener" {
   }
 }*/
 
-resource "aws_ecs_service" "laravel_app_service" {
+/*resource "aws_ecs_service" "laravel_app_service" {
   name            = var.laravel_app_service_name
   cluster         = aws_ecs_cluster.laravel_app_cluster.id
   task_definition = aws_ecs_task_definition.laravel_app_task.arn
   launch_type     = "FARGATE"
   desired_count   = 1
 
-  /*load_balancer {
+  load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = aws_ecs_task_definition.laravel_app_task.family
     container_port   = var.container_port
-  }*/
+  }
 
   network_configuration {
     subnets          = ["${aws_default_subnet.default_subnet_a.id}", "${aws_default_subnet.default_subnet_b.id}", "${aws_default_subnet.default_subnet_c.id}"]
     assign_public_ip = true
     security_groups  = ["${aws_security_group.service_security_group.id}", "sg-0ca883d581e8c6e8b", "sg-0c60fad80a982e530", "sg-0ca18d55621ed8fdc"]
   }
-}
+}*/
 
 resource "aws_security_group" "service_security_group" {
   ingress {
@@ -137,4 +137,12 @@ resource "aws_security_group" "service_security_group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+resource "aws_cloudwatch_log_group" "cloudwatch_group" {
+  name = var.cloudwatch_group
+
+  /*tags = {
+    Environment = "production"
+    Application = "serviceA"
+  }*/
 }
