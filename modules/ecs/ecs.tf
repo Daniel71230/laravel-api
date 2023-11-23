@@ -1,3 +1,11 @@
+resource "aws_cloudwatch_log_group" "cloudwatch_group" {
+  name = var.cloudwatch_group
+
+  /*tags = {
+    Environment = "production"
+    Application = "serviceA"
+  }*/
+}
 resource "aws_ecs_cluster" "laravel_app_cluster" {
   name = var.laravel_app_cluster_name
 }
@@ -123,7 +131,7 @@ resource "aws_lb_listener" "listener" {
   }
 }*/
 
-resource "aws_security_group" "service_security_group" {
+/*resource "aws_security_group" "service_security_group" {
   ingress {
     from_port       = 0
     to_port         = 0
@@ -137,12 +145,5 @@ resource "aws_security_group" "service_security_group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-resource "aws_cloudwatch_log_group" "cloudwatch_group" {
-  name = var.cloudwatch_group
+}*/
 
-  /*tags = {
-    Environment = "production"
-    Application = "serviceA"
-  }*/
-}
