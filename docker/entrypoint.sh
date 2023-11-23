@@ -19,13 +19,13 @@ php artisan optimize:clear
 #php artisan db:seed
 
 # Fix files ownership.
-chown -R nginx .
-chown -R nginx /app/storage
-chown -R nginx /app/storage/logs
-chown -R nginx /app/storage/framework
-chown -R nginx /app/storage/framework/sessions
-chown -R nginx /app/bootstrap
-chown -R nginx /app/bootstrap/cache
+chown -R www-data .
+chown -R www-data /app/storage
+chown -R www-data /app/storage/logs
+chown -R www-datax /app/storage/framework
+chown -R www-data /app/storage/framework/sessions
+chown -R www-data /app/bootstrap
+chown -R www-data /app/bootstrap/cache
 
 # Set correct permission.
 chmod -R 775 /app/storage
