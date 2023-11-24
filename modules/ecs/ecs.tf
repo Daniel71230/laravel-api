@@ -3,12 +3,12 @@ resource "aws_ecs_cluster" "laravel_app_cluster" {    # ECS klastera izveide
 }
 
 resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveide
-  family                   = var.laravel_app_task_family
+  family                   = var.laravel_app_task_family   # ECR attēls, servera ports un Cloudwatch logs tiek definēti JSON masīvā
   container_definitions    = <<DEFINITION
   [
     {
       "name": "${var.laravel_app_task_name}",
-      "image": "${var.ecr_repo_url}",                # ECR attēls
+      "image": "${var.ecr_repo_url}",                
       "essential": true,
       "portMappings": [
         {
@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveid
         }
       ],
       "logConfiguration": {
-          "logDriver": "awslogs",                            # Cloudwatch logu piesaistīšana
+          "logDriver": "awslogs",                            
           "options": {    
             "awslogs-group": "${var.cloudwatch_group}",
             "awslogs-region": "eu-west-1",
