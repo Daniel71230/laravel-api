@@ -5,7 +5,7 @@ if [ ! -f "vendor/autoload.php" ]; then
 fi
 
 # php artisan migrate/seed
-sudo apt-get install php-dom
+apt-get install php-dom
 php artisan route:cache
 php artisan route:clear
 php artisan config:cache
