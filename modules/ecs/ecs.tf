@@ -2,20 +2,6 @@ resource "aws_ecs_cluster" "laravel_app_cluster" {
   name = var.laravel_app_cluster_name
 }
 
-resource "aws_default_vpc" "default_vpc" {}
-
-resource "aws_default_subnet" "default_subnet_a" {
-  availability_zone = var.availability_zones[0]
-}
-
-resource "aws_default_subnet" "default_subnet_b" {
-  availability_zone = var.availability_zones[1]
-}
-
-resource "aws_default_subnet" "default_subnet_c" {
-  availability_zone = var.availability_zones[2]
-}
-
 resource "aws_ecs_task_definition" "laravel_app_task" {
   family                   = var.laravel_app_task_family
   container_definitions    = <<DEFINITION
@@ -61,6 +47,22 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 resource "aws_cloudwatch_log_group" "cloudwatch_group" {
   name = var.cloudwatch_group
 }
+
+
+
+/*resource "aws_default_vpc" "default_vpc" {}
+
+resource "aws_default_subnet" "default_subnet_a" {
+  availability_zone = var.availability_zones[0]
+}
+
+resource "aws_default_subnet" "default_subnet_b" {
+  availability_zone = var.availability_zones[1]
+}
+
+resource "aws_default_subnet" "default_subnet_c" {
+  availability_zone = var.availability_zones[2]
+}*/
 /*resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
