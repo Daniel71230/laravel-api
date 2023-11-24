@@ -1,11 +1,3 @@
-resource "aws_cloudwatch_log_group" "cloudwatch_group" {
-  name = var.cloudwatch_group
-
-  /*tags = {
-    Environment = "production"
-    Application = "serviceA"
-  }*/
-}
 resource "aws_ecs_cluster" "laravel_app_cluster" {
   name = var.laravel_app_cluster_name
 }
@@ -66,6 +58,9 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+resource "aws_cloudwatch_log_group" "cloudwatch_group" {
+  name = var.cloudwatch_group
+}
 /*resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
