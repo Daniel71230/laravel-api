@@ -32,7 +32,6 @@ phases:
   post_build:
     on-failure: ABORT
     commands:
-      - docker images ls -a
       - echo "Docker images successfully built!"
 
 
