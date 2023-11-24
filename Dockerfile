@@ -10,7 +10,7 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 WORKDIR /app
 
 # Copy files from current folder to container current folder (set in workdir).
-COPY --chown=www-data:www-data . .
+COPY --chown=nginx:nginx . .
 
 # Create laravel caching folders.
 RUN mkdir -p ./storage/framework
@@ -19,8 +19,8 @@ RUN mkdir -p ./storage/framework/bootstrap
 RUN mkdir -p ./storage/framework/bootstrap/cache
 
 # Adjust user permission & group.
-RUN usermod --uid 1000 www-data
-RUN groupmod --gid 1000  www-data
+RUN usermod --uid 1000 nginx
+RUN groupmod --gid 1000  nginx
 
 # Run the entrypoint file.
 ENTRYPOINT [ "docker/entrypoint.sh" ]
