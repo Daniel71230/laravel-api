@@ -19,21 +19,21 @@ php artisan optimize:clear
 #php artisan db:seed
 
 # Files ownership change.
-chown -r www-data .
-chown -r www-data /app/storage
-chown -r www-data /app/storage/logs
-chown -r www-data /app/storage/framework
-chown -r www-data /app/storage/framework/sessions
-chown -r www-data /app/bootstrap
-chown -r www-data /app/bootstrap/cache
+chown -R www-data .
+chown -R www-data /app/storage
+chown -R www-data /app/storage/logs
+chown -R www-data /app/storage/framework
+chown -R www-data /app/storage/framework/sessions
+chown -R www-data /app/bootstrap
+chown -R www-data /app/bootstrap/cache
 
 # Modifying permissions.
-chmod -r 775 /app/storage
-chmod -r 775 /app/storage/logs
-chmod -r 775 /app/storage/framework
-chmod -r 775 /app/storage/framework/sessions
-chmod -r 775 /app/bootstrap
-chmod -r 775 /app/bootstrap/cache
+chmod -R 775 /app/storage
+chmod -R 775 /app/storage/logs
+chmod -R 775 /app/storage/framework
+chmod -R 775 /app/storage/framework/sessions
+chmod -R 775 /app/bootstrap
+chmod -R 775 /app/bootstrap/cache
 
 # Start PHP FPM process manager in the background
 php-fpm -D
