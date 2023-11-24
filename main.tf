@@ -26,8 +26,8 @@ module "ecsCluster" {
   container_port               = local.container_port
   laravel_app_task_name        = local.laravel_app_task_name
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
-  app_load_balancer_name = local.app_load_balancer_name
-  target_group_name              = local.target_group_name
-  laravel_app_service_name          = local.laravel_app_service_name
+  //app_load_balancer_name = local.app_load_balancer_name
+  //target_group_name              = local.target_group_name
+  //laravel_app_service_name          = local.laravel_app_service_name
   cloudwatch_group =   local.cloudwatch_group
 }
