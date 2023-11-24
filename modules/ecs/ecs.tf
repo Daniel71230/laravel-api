@@ -1,14 +1,14 @@
-resource "aws_ecs_cluster" "laravel_app_cluster" {
+resource "aws_ecs_cluster" "laravel_app_cluster" {    # ECS klastera izveide
   name = var.laravel_app_cluster_name
 }
 
-resource "aws_ecs_task_definition" "laravel_app_task" {
+resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveide
   family                   = var.laravel_app_task_family
   container_definitions    = <<DEFINITION
   [
     {
       "name": "${var.laravel_app_task_name}",
-      "image": "${var.ecr_repo_url}",
+      "image": "${var.ecr_repo_url}",                # ECR attēls
       "essential": true,
       "portMappings": [
         {
@@ -17,8 +17,8 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
         }
       ],
       "logConfiguration": {
-          "logDriver": "awslogs",
-          "options": {
+          "logDriver": "awslogs",                            # Cloudwatch logu piesaistīšana
+          "options": {    
             "awslogs-group": "${var.cloudwatch_group}",
             "awslogs-region": "eu-west-1",
             "awslogs-stream-prefix": "ecs"
@@ -27,14 +27,14 @@ resource "aws_ecs_task_definition" "laravel_app_task" {
     }
   ]
   DEFINITION
-  requires_compatibilities = ["FARGATE"]
+  requires_compatibilities = ["FARGATE"]                           # ECS dzinēja tips. Fargate ir bezservera dzinējs, kas ir vislabāk piemērots nelielai testa vietnei.
   network_mode             = "awsvpc"
   memory                   = 512
   cpu                      = 256
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 }
 
-resource "aws_iam_role" "ecs_task_execution_role" {
+resource "aws_iam_role" "ecs_task_execution_role" {                        # 
   name               = var.ecs_task_execution_role_name
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
@@ -44,7 +44,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_cloudwatch_log_group" "cloudwatch_group" {
+resource "aws_cloudwatch_log_group" "cloudwatch_group" {                    # CLoudwatch logu grupas izveide
   name = var.cloudwatch_group
 }
 
