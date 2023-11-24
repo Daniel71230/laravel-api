@@ -33,6 +33,12 @@ variable "ecs_task_execution_role_name" {
   type        = string
 }
 
+variable "cloudwatch_group" {
+  description = "CloudWatch group name."
+  type = string
+  default = "supreme-task-group"
+}
+
 /*variable "app_load_balancer_name" {
   description = "ALB Name"
   type        = string
@@ -41,16 +47,11 @@ variable "ecs_task_execution_role_name" {
 variable "target_group_name" {
   description = "ALB Target Group Name"
   type        = string
-}*/
+}
 
 variable "laravel_app_service_name" {
   description = "ECS Service Name"
   type        = string
 }
-
-variable "cloudwatch_group" {
-  description = "CloudWatch group name."
-  type = string
-  default = "supreme-task-group"
-}
+*/
 
