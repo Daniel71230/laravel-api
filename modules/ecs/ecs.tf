@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveid
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 }
 
-resource "aws_iam_role" "ecs_task_execution_role" {                        # 
+resource "aws_iam_role" "ecs_task_execution_role" {                        # Uzdevuma palaišanas piekļūves definēšana
   name               = var.ecs_task_execution_role_name
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
