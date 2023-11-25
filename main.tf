@@ -19,7 +19,7 @@ module "ecsCluster" {
   source = "./modules/ecs"
 
   laravel_app_cluster_name = local.laravel_app_cluster_name
-  availability_zones    = local.availability_zones
+  //availability_zones    = local.availability_zones
 
   laravel_app_task_family         = local.laravel_app_task_family
   ecr_repo_url                 = module.ecrRepo.repository_url
