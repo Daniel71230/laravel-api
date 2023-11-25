@@ -11,7 +11,6 @@ php artisan route:clear
 php artisan config:cache
 php artisan config:clear
 php artisan optimize
-php artisan serve 
 
 php artisan clear
 php artisan optimize:clear
