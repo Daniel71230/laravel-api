@@ -3,11 +3,6 @@ variable "laravel_app_cluster_name" {
   type        = string
 }
 
-variable "availability_zones" {
-  description = "eu-west-1 AZs"
-  type        = list(string)
-}
-
 variable "laravel_app_task_family" {
   description = "ECS Task Family"
   type        = string
@@ -39,7 +34,13 @@ variable "cloudwatch_group" {
   default = "supreme-task-group"
 }
 
-/*variable "app_load_balancer_name" {
+/*
+variable "availability_zones" {
+  description = "eu-west-1 AZs"
+  type        = list(string)
+}
+
+variable "app_load_balancer_name" {
   description = "ALB Name"
   type        = string
 }
