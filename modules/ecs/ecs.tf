@@ -16,6 +16,16 @@ resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveid
           "hostPort": ${var.container_port}
         }
       ],
+      "secrets": [
+        {
+          "name": "DB_USERNAME",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:242611965122:secret:rds!db-53196283-0851-4fd5-8ef8-dcac4ef7b04d-tBzML2:username::"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-1:242611965122:secret:rds!db-53196283-0851-4fd5-8ef8-dcac4ef7b04d-tBzML2:password::"
+        }
+      ],
       "logConfiguration": {
           "logDriver": "awslogs",                            
           "options": {    
