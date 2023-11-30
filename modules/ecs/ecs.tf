@@ -53,8 +53,13 @@ resource "aws_iam_role" "ecs_task_execution_role" {                        # Uzd
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
+   for_each = toset([
+    "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  ])
+
   role       = aws_iam_role.ecs_task_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+  policy_arn = each.value
 }
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   role       = aws_iam_role.ecs_task_execution_role.name
