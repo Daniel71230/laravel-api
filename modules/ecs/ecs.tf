@@ -49,10 +49,10 @@ resource "aws_iam_role" "ecs_task_execution_role" {                        # Uzd
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
-resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
+resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {    # Vairākas politikas tiek pievienotas ciklā
    for_each = toset([
-    "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
-    "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+    "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",    # ECS uzdevuma palaišanas politika
+    "arn:aws:iam::aws:policy/SecretsManagerReadWrite"                           # Secres manager datu piekļuves politika
   ])
 
   role       = aws_iam_role.ecs_task_execution_role.name
