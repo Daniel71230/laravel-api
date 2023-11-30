@@ -9,10 +9,10 @@ data "aws_iam_policy_document" "assume_role_policy" {
   }
 }
 
-data "aws_iam_policy_document" "ecs_task_execution_policy" {
+/*data "aws_iam_policy_document" "ecs_task_execution_policy" {
   statement {
     actions   = ["secretsmanager:GetSecretValue"]
     effect    = "Allow"
     resources = ["*"]
   }
-}
+}*/
