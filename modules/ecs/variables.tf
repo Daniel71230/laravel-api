@@ -43,7 +43,7 @@ variable "target_group_name" {
   type        = string
 }
 
-/*
+
 variable "availability_zones" {
   description = "eu-west-1 AZs"
   type        = list(string)
@@ -58,7 +58,7 @@ variable "target_group_name" {
   description = "ALB Target Group Name"
   type        = string
 }
-
+/*
 variable "laravel_app_service_name" {
   description = "ECS Service Name"
   type        = string

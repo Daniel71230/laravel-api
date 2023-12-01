@@ -19,7 +19,7 @@ module "ecsCluster" {
   source = "./modules/ecs"
 
   laravel_app_cluster_name = local.laravel_app_cluster_name
-  //availability_zones    = local.availability_zones
+
 
   laravel_app_task_family         = local.laravel_app_task_family
   ecr_repo_url                 = module.ecrRepo.repository_url
@@ -28,6 +28,7 @@ module "ecsCluster" {
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
   app_load_balancer_name = local.app_load_balancer_name
   target_group_name              = local.target_group_name
+  availability_zones    = local.availability_zones
   //laravel_app_service_name          = local.laravel_app_service_name
   cloudwatch_group =   local.cloudwatch_group
 }

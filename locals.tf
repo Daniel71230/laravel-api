@@ -7,7 +7,6 @@ locals {
   container_port               = 8080
   laravel_app_task_name           = "laravel-web-app"
   ecs_task_execution_role_name = "laravel-web-app-execution-role"
-
   app_load_balancer_name = "laravel-app-alb"
   target_group_name              = "laravel-alb-tg"
 
