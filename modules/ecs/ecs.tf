@@ -75,7 +75,7 @@ resource "aws_default_subnet" "default_subnet_b" {
   availability_zone = var.availability_zones[1]
 }
 
-/*resource "aws_alb" "app_load_balancer" {
+resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
   subnets = [
@@ -99,7 +99,7 @@ resource "aws_security_group" "load_balancer_security_group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}*/
+}
 
 resource "aws_lb_target_group" "target_group" {
   name        = var.target_group_name
@@ -119,7 +119,7 @@ resource "aws_lb_target_group" "target_group" {
     }   
 }
 
-/*resource "aws_lb_listener" "listener" {
+resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_alb.app_load_balancer.id
   port              = "80"
   protocol          = "HTTP"
@@ -127,7 +127,7 @@ resource "aws_lb_target_group" "target_group" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.target_group.id
   }
-}*/
+}
 
 /*resource "aws_ecs_service" "laravel_app_service" {
   name            = var.laravel_app_service_name
