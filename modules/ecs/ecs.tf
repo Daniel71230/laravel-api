@@ -111,7 +111,7 @@ resource "aws_lb_target_group" "target_group" {
   vpc_id      = aws_default_vpc.default_vpc.id
    health_check {
         healthy_threshold   = "2"
-        unhealthy_threshold = 1
+        unhealthy_threshold = 3
         interval            = "15"
         protocol            = "http"
         matcher             = "150"
