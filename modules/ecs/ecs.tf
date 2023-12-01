@@ -106,7 +106,7 @@ resource "aws_lb_target_group" "target_group" {
   port        = "80"
   protocol    = "HTTP"
   target_type = "ip"
-  ip_address_type = "IPv4"
+  ip_address_type = "ipv4"
   vpc_id      = aws_default_vpc.default_vpc.id
 }
 
