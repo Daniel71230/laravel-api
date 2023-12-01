@@ -65,7 +65,7 @@ resource "aws_cloudwatch_log_group" "cloudwatch_group" {                    # CL
 
 
 
-/*resource "aws_default_vpc" "default_vpc" {}
+resource "aws_default_vpc" "default_vpc" {}
 
 resource "aws_default_subnet" "default_subnet_a" {
   availability_zone = var.availability_zones[0]
@@ -75,18 +75,14 @@ resource "aws_default_subnet" "default_subnet_b" {
   availability_zone = var.availability_zones[1]
 }
 
-resource "aws_default_subnet" "default_subnet_c" {
-  availability_zone = var.availability_zones[2]
-}*/
-/*resource "aws_alb" "app_load_balancer" {
+resource "aws_alb" "app_load_balancer" {
   name               = var.app_load_balancer_name
   load_balancer_type = "application"
   subnets = [
     "${aws_default_subnet.default_subnet_a.id}",
-    "${aws_default_subnet.default_subnet_b.id}",
-    "${aws_default_subnet.default_subnet_c.id}"
+    "${aws_default_subnet.default_subnet_b.id}"
   ]
-  security_groups = ["${aws_security_group.load_balancer_security_group.id}", "sg-0ca883d581e8c6e8b", "sg-0c60fad80a982e530", "sg-0ca18d55621ed8fdc"]
+  security_groups = ["${aws_security_group.load_balancer_security_group.id}", "sg-0ca883d581e8c6e8b"]
 }
 
 resource "aws_security_group" "load_balancer_security_group" {
@@ -107,9 +103,10 @@ resource "aws_security_group" "load_balancer_security_group" {
 
 resource "aws_lb_target_group" "target_group" {
   name        = var.target_group_name
-  port        = var.container_port
+  port        = "80"
   protocol    = "HTTP"
   target_type = "ip"
+  ip_address_type = "IPv4"
   vpc_id      = aws_default_vpc.default_vpc.id
 }
 
@@ -121,7 +118,7 @@ resource "aws_lb_listener" "listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.target_group.arn
   }
-}*/
+}
 
 /*resource "aws_ecs_service" "laravel_app_service" {
   name            = var.laravel_app_service_name

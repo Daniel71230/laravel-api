@@ -33,6 +33,15 @@ variable "cloudwatch_group" {
   type = string
   default = "supreme-task-group"
 }
+variable "app_load_balancer_name" {
+  description = "ALB Name"
+  type        = string
+}
+
+variable "target_group_name" {
+  description = "ALB Target Group Name"
+  type        = string
+}
 
 /*
 variable "availability_zones" {
