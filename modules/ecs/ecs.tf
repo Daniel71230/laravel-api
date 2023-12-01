@@ -114,7 +114,7 @@ resource "aws_lb_target_group" "target_group" {
         unhealthy_threshold = 3
         interval            = "15"
         protocol            = "HTTP"
-        matcher             = "150"
+        matcher             = "220"
         timeout             = "7"
     }   
 }
