@@ -113,7 +113,7 @@ resource "aws_lb_target_group" "target_group" {
         healthy_threshold   = "2"
         unhealthy_threshold = 3
         interval            = "15"
-        protocol            = "http"
+        protocol            = "HTTP"
         matcher             = "150"
         timeout             = "7"
     }   
