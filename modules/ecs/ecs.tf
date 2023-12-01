@@ -107,7 +107,7 @@ resource "aws_lb_target_group" "target_group" {
   protocol    = "HTTP"
   target_type = "ip"
   ip_address_type = "ipv4"
-  protocol_version = "http1"
+  protocol_version = "HTTP1"
   vpc_id      = aws_default_vpc.default_vpc.id
    health_check {
         healthy_threshold   = "2"
