@@ -1,5 +1,11 @@
 resource "aws_ecs_cluster" "laravel_app_cluster" {    # ECS klastera izveide
   name = var.laravel_app_cluster_name
+  setting {             # Ļauj CloudWatch servisam automatiski saņemt metrikas par CPU, atmiņu un tīklu,  
+    name  = "containerInsights" #  kā arī parādīt diagnostikas informāciju par kļūmēm
+    value = "enabled"
+  }
+
+
 }
 
 resource "aws_ecs_task_definition" "laravel_app_task" {    # ECS uzdevuma izveide
