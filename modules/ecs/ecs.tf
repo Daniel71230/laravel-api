@@ -71,6 +71,9 @@ resource "aws_cloudwatch_log_group" "cloudwatch_group" {                    # CL
 
 
 
+
+
+/*
 resource "aws_default_vpc" "default_vpc" {}
 
 resource "aws_default_subnet" "default_subnet_a" {
@@ -135,7 +138,7 @@ resource "aws_lb_listener" "listener" {
   }
 }
 
-/*resource "aws_ecs_service" "laravel_app_service" {
+resource "aws_ecs_service" "laravel_app_service" {
   name            = var.laravel_app_service_name
   cluster         = aws_ecs_cluster.laravel_app_cluster.id
   task_definition = aws_ecs_task_definition.laravel_app_task.arn
