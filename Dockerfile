@@ -10,7 +10,7 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 WORKDIR /app
 
 # Failu kopēšana no pašreizējas mapes uz konteinera mapi
-COPY --chown=www-data:www-data . .
+COPY --chown=web:web . .
 
 # Laravel keša mapju izveidošana
 RUN mkdir -p ./storage/framework
