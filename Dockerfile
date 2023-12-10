@@ -19,8 +19,8 @@ RUN mkdir -p ./storage/framework/bootstrap
 RUN mkdir -p ./storage/framework/bootstrap/cache
 
 # Lietotāju un grupu atļauju konfigurēšana
-RUN usermod --uid 1000 www-data
-RUN groupmod --gid 1000  www-data
+RUN usermod --uid 1000 web
+RUN groupmod --gid 1000  web
 
 # Entrypoint konsoles skripta faila (ar vajadzīgām komandam, tajā skaitā datubāzes migrāciju) palaišana
 ENTRYPOINT [ "docker/entrypoint.sh" ]
