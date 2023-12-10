@@ -10,7 +10,7 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 WORKDIR /app
 
 # Failu kopēšana no pašreizējas mapes uz konteinera mapi
-COPY --chown=web:web . .
+COPY --chown=www-data:www-data . .
 
 # Laravel keša mapju izveidošana
 RUN mkdir -p ./storage/framework
@@ -19,8 +19,8 @@ RUN mkdir -p ./storage/framework/bootstrap
 RUN mkdir -p ./storage/framework/bootstrap/cache
 
 # Lietotāju un grupu atļauju konfigurēšana
-RUN usermod --uid 1000 web
-RUN groupmod --gid 1000 web
+RUN usermod --uid 1000 www-data
+RUN groupmod --gid 1000  www-data
 
 # Entrypoint konsoles skripta faila (ar vajadzīgām komandam, tajā skaitā datubāzes migrāciju) palaišana
 ENTRYPOINT [ "docker/entrypoint.sh" ]
