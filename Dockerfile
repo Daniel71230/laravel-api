@@ -2,9 +2,9 @@
 FROM 242611965122.dkr.ecr.eu-west-1.amazonaws.com/laravel-api-php-docker:latest as php
 
 # Vides mainīgie
-COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
-COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
-COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./server/php/php.ini /usr/local/etc/php/php.ini
+COPY ./server/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
+COPY ./server/nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Darba direktorijas konfigurēšana
 WORKDIR /app
