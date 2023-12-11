@@ -23,4 +23,4 @@ RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1000  www-data
 
 # Entrypoint konsoles skripta faila (ar vajadzīgām komandam, tajā skaitā datubāzes migrāciju) palaišana
-ENTRYPOINT [ "docker/entrypoint.sh" ]
+ENTRYPOINT [ "server/entrypoint.sh" ]
