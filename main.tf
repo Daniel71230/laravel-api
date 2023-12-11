@@ -15,16 +15,14 @@ module "ecrRepo" {
   ecr_repo_name = local.ecr_repo_name
 }
 
-/*module "ecsCluster" {
+module "ecsCluster" {
   source = "./modules/ecs"
 
   laravel_app_cluster_name = local.laravel_app_cluster_name
-
-
   laravel_app_task_family         = local.laravel_app_task_family
   ecr_repo_url                 = module.ecrRepo.repository_url
   container_port               = local.container_port
   laravel_app_task_name        = local.laravel_app_task_name
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
   cloudwatch_group =   local.cloudwatch_group
-}*/
+}
