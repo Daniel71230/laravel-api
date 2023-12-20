@@ -9,13 +9,13 @@ terraform {
   }
 }
 
-module "ecrRepo" {
+module "ecr" {
   source = "./modules/ecr"
 
   ecr_repo_name = local.ecr_repo_name
 }
 
-module "ecsCluster" {
+module "ecs" {
   source = "./modules/ecs"
 
   laravel_app_cluster_name = local.laravel_app_cluster_name
