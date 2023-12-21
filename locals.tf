@@ -8,5 +8,5 @@ locals {
   ecs_task_execution_role_name = "laravel-web-app-execution-role"
   cloudwatch_group = "ecs_cloudwatch"
   ecs_service_name = "laravel-web-app-fargate"
-  availability_zones = ["eu-west-a", "eu-west-b"]
+  availability_zones = ["eu-west-1a", "eu-west-1b"]
 }
