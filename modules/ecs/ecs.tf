@@ -68,7 +68,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {    
 resource "aws_cloudwatch_log_group" "cloudwatch_group" {                    # CLoudwatch logu grupas izveide
   name = var.cloudwatch_group
 }
-
+/*
 resource "aws_default_subnet" "default_subnet_a" {
   availability_zone = var.availability_zones[0]
 }
@@ -91,7 +91,7 @@ resource "aws_ecs_service" "laravel_app_service" {
     security_groups  = ["sg-0f0d86bc09a472c04"]
   }
 }
-
+*/
 
 
 /*

@@ -25,7 +25,7 @@ module "ecs" {
   laravel_app_task_name        = local.laravel_app_task_name
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
   cloudwatch_group =   local.cloudwatch_group
-  ecs_service_name = local.ecs_service_name
+  /*ecs_service_name = local.ecs_service_name
   vpc_id = "vpc-00978fc9d2c12f5e5"
-  availability_zones = local.availability_zones
+  availability_zones = local.availability_zones*/
 }

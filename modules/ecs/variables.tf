@@ -33,7 +33,7 @@ variable "cloudwatch_group" {
   type = string
   default = "supreme-task-group"
 }
-
+/*
 variable "ecs_service_name" {
   description = "ECS Service Name"
   type = string
@@ -47,7 +47,7 @@ variable "vpc_id" {
 variable "availability_zones" {
   description = "Availability zones for ECS"
   type = list(any)
-}
+}*/
 
 
 
