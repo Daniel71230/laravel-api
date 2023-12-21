@@ -42,7 +42,7 @@ Route::get('/remove_cart/{id}', [BookController::class, 'remove_cart']);
 
 Route::get('/login', function(){
     if(Auth::check()){
-        return redirect()->back();
+        return redirect(route('main'));
     }
     return view('login');
 })->name('login');

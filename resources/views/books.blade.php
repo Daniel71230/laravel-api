@@ -31,7 +31,8 @@
 <h3 id="price"> @lang('messages.price'): {{ $b->price }} €</h3>
 <p class='input'> {{ $b->description }} </p>
 
-<form  class='input' method="get" action="{{action([App\Http\Controllers\BookController::class, 'buy' ], $b->id) }}">
+<form  class='input' method="post" action="{{url('add_cart', $b->id) }}">
+@csrf
 
 <input type="submit" class="form" id='buy'
 value="@lang('messages.buy')"></form>
