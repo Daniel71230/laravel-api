@@ -41,6 +41,13 @@ variable "ecs_service_name" {
 
 variable "vpc_id" {
   description = "ID of the VPC"
+  type = string
 }
+
+variable "availability_zones" {
+  description = "Availability zones for ECS"
+  type = list(any)
+}
+
 
 
