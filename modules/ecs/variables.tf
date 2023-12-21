@@ -34,4 +34,13 @@ variable "cloudwatch_group" {
   default = "supreme-task-group"
 }
 
+variable "ecs_service_name" {
+  description = "ECS Service Name"
+  type = string
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC"
+}
+
 

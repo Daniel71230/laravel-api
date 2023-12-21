@@ -25,4 +25,5 @@ module "ecs" {
   laravel_app_task_name        = local.laravel_app_task_name
   ecs_task_execution_role_name = local.ecs_task_execution_role_name
   cloudwatch_group =   local.cloudwatch_group
+  ecs_service_name = local.ecs_service_name
 }

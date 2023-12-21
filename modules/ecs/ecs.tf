@@ -69,7 +69,20 @@ resource "aws_cloudwatch_log_group" "cloudwatch_group" {                    # CL
   name = var.cloudwatch_group
 }
 
+resource "aws_ecs_service" "laravel_app_service" {
+  name            = var.ecs_service_name
+  cluster         = aws_ecs_cluster.laravel_app_cluster.id
+  task_definition = aws_ecs_task_definition.laravel_app_task.arn
+  launch_type     = "FARGATE"
+  desired_count   = 1
 
+  network_configuration {
+    
+    subnets          = ["${aws_default_subnet.default_subnet_a.id}", "${aws_default_subnet.default_subnet_b.id}"]
+    assign_public_ip = true
+    security_groups  = ["${aws_security_group.service_security_group.id}", "sg-0f0d86bc09a472c04"]
+  }
+}
 
 
 

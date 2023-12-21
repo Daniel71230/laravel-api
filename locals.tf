@@ -7,4 +7,5 @@ locals {
   laravel_app_task_name           = "laravel-web-app"
   ecs_task_execution_role_name = "laravel-web-app-execution-role"
   cloudwatch_group = "ecs_cloudwatch"
+  ecs_service_name = "laravel-web-app-fargate"
 }
