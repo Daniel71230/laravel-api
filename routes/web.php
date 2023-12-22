@@ -34,6 +34,8 @@ Route::get('book/genre/{id}/create', [BookController::class, 'create']);
 Route::get('book/genre/{id}/update', [BookController::class, 'update']);
 Route::get('book/genre/{id}/edit', [BookController::class, 'edit']);
 Route::get('userbooks/{id}', [BookController::class, 'buy']);
+Route::get('review/book/{id}', [ReviewController::class, 'index']);
+Route::get('review/book/{id}/create', [ReviewController::class, 'create']);
 Route::post('/add_cart/{id}', [BookController::class, 'add_cart']);
 });
 Route::get('/show_cart', [BookController::class, 'show_cart']);
