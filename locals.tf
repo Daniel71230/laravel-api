@@ -5,6 +5,6 @@ locals {
   laravel_app_task_family         = "laravel-web-app"
   laravel_app_task_name           = "laravel-web-app"
   ecs_task_execution_role_name = "laravel-web-app-execution-role"
-  container_port               = 8081
+  container_port               = 8080
   cloudwatch_group = "ecs_cloudwatch"
 }
