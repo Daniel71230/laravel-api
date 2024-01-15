@@ -24,20 +24,20 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
             
-        $genre = Genre::firstOrNew([
+        $genre = Genre::firstOrCreate([
             'name' => 'History'
             ]);
-        $genre = Genre::firstOrNew([
+        $genre = Genre::firstOrCreate([
             'name' => 'Novel'
             ]);
-        $genre = Genre::firstOrNew([
+        $genre = Genre::firstOrCreate([
             'name' => 'Multi genre'
             ]);
-        $genre = Genre::firstOrNew([
+        $genre = Genre::firstOrCreate([
             'name' => 'Crime & Detective'
             ]);
-        $genre = Genre::create('name', 'History')->first();
-        $genre->books()->firstOrNew(['name' => 'Life in the Fallout of the Third Reich', 'author_name' => 'Harald Jahner',
+        $genre = Genre::where('name', 'History')->first();
+        $genre->books()->create(['name' => 'Life in the Fallout of the Third Reich', 'author_name' => 'Harald Jahner',
         'description' => 'Germany, 1945: a country in ruins. Cities have been reduced to rubble and more than half of the population are where they do not belong or do not want to be. How can a functioning society ever emerge from this chaos? In bombed-out Berlin, Ruth Andreas-Friedrich, journalist and member of the Nazi resistance, warms herself by a makeshift stove and records in her diary how a frenzy of expectation and industriousness grips the city. The Americans send Hans Habe, an Austro-Hungarian Jewish journalist and US army soldier, to the frontline of psychological warfare - tasked with establishing a newspaper empire capable of remoulding the minds of the Germans. The philosopher Hannah Arendt returns to the country she fled to find a population gripped by a manic loquaciousness, but faces a deafening wall of silence at the mention of the Holocaust.',
         'price' => 8.50]);
 
@@ -45,8 +45,8 @@ class DatabaseSeeder extends Seeder
         'description' => "THE GRIPPING WWII ESPIONAGE THRILLER ABOUT SURVIVAL, TRUST AND A DEADLY BATTLE FOR THE TRUTH . . . 'Races along, with plenty of surprises' Times February, 1944. A bitter winter grips occupied France, where Marc Reece leads a circuit of British agents risking their lives in order to sabotage the German war effort from within. But Reece has a second mission, secret even from his fellow agents - including Charlotte, the woman with whom he has ill-advisedly fallen in love. He must secure a document identifying a German spy at the heart of British intelligence. The fate of the Allied forces on D-Day is in his hands. But when his circuit is ambushed - with fatal consequences - Reece realizes there may be a traitor in its ranks, putting everything they've been fighting for at risk. Then Charlotte goes missing. Is she in danger, or has Reece been betrayed by the only person he thought he could trust? And with the clock ticking towards D-Day, can he find the truth before it's too late? A gripping and atmospheric thriller inspired by true events, this is the story of a deadly game of espionage, destined to change the course of the most crucial battle in the Second World War. 'Exhaustively researched, superbly realised, The Winter Agent is a superior SOE novel. Gareth Rubin really knows his stuff and it shows on every page' Howard Linskey 'Smart, stylish, meticulously researched. Rich in loyalty and double dealing, captures perfectly the horror and heroism, delivered at a cracking pace' Sun 'Brilliant. Blends meticulously researched history with a plot of double-crossing and deception' Best",
         'price' => 10]);
 
-        $genre = Genre::create('name', 'Novel')->first();
-        $genre->books()->firstOrNew(['name' => 'The Brothers Karamazov', 'author_name' => 'Fyodor Dostoevsky',
+        $genre = Genre::where('name', 'Novel')->first();
+        $genre->books()->create(['name' => 'The Brothers Karamazov', 'author_name' => 'Fyodor Dostoevsky',
         'description' => 'The Brothers Karamasov is a murder mystery, a courtroom drama, and an exploration of erotic rivalry in a series of triangular love affairs involving the “wicked and sentimental” Fyodor Pavlovich Karamazov and his three sons―the impulsive and sensual Dmitri; the coldly rational Ivan; and the healthy, red-cheeked young novice Alyosha. Through the gripping events of their story, Dostoevsky portrays the whole of Russian life, is social and spiritual striving, in what was both the golden age and a tragic turning point in Russian culture.',
         'price' => 15]);
 
